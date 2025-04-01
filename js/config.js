@@ -5,7 +5,7 @@ var Config = {};
  * What should the text in the center of the screen be?
  * if empty it will fill in your Server Name
  */
-Config.title = "IRS | SCP MilitaryRP.";
+Config.title = "IRS | SCP MilitaryRP";
 
 /**
  * Enable map text in the top left corner of the screen?
@@ -27,7 +27,7 @@ Config.enableAnnouncements = true;
  * only works if enableAnnouncements = true
  */
 Config.announceMessages = [
-  "Бажаю вам гарного РП процессу",
+  "Бажаю вам гарного РП процесу",
   "Охороняти. Утримувати. Захищати.",
   "Цікавий факт: ГОК не тільки знищує аномалії. Вони їх ще досліджують.",
   "Цікавий факт: А... А відділ антимеметики в нас існує?",
@@ -42,7 +42,7 @@ Config.announceMessages = [
  * How many miliseconds for each announcement?
  * only works if enableAnnouncements = true
  */
-Config.announcementLength = 3000;
+Config.announcementLength = 5000;
 
 /**
  * Image Filename
