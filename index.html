@@ -13,7 +13,6 @@
       href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed|Ubuntu+Mono&display=swap"
       rel="stylesheet"
     />
-    <!-- <link rel="stylesheet" href="css/main.css" /> -->
     <title>Loading Screen</title>
   </head>
   <body>
@@ -38,6 +37,11 @@
       <div class="loading-box"></div>
     </main>
 
+    <!-- Музыка -->
+    <audio id="bg-music" loop>
+      <source src="music.mp3" type="audio/mpeg" />
+    </audio>
+
     <script src="js/lib/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
       document.write(
@@ -46,8 +50,41 @@
       document.write(
         '<script src="js/main.js?' + Math.random() + '"><\/script>'
       );
+
+      // Музыка + плавное появление
+      const audio = document.getElementById("bg-music");
+
+      window.addEventListener("load", () => {
+        audio.volume = 0;
+
+        audio.play().then(() => {
+          // Плавное увеличение громкости
+          let vol = 0;
+          const fade = setInterval(() => {
+            if (vol < 0.2) {
+              vol += 0.01;
+              audio.volume = vol;
+            } else {
+              clearInterval(fade);
+            }
+          }, 100);
+        }).catch(() => {
+          // если автозапуск заблокирован
+          document.addEventListener("click", () => {
+            audio.play();
+
+            let vol = 0;
+            const fade = setInterval(() => {
+              if (vol < 0.2) {
+                vol += 0.01;
+                audio.volume = vol;
+              } else {
+                clearInterval(fade);
+              }
+            }, 100);
+          }, { once: true });
+        });
+      });
     </script>
-    <!-- <script src="config.js"></script> -->
-    <!-- <script src="js/main.js"></script> -->
   </body>
 </html>
